@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belem - Robotics & AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        header {
+            background-color: #7b8fa3;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: 400;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #5a8ec2;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .profile-img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 5px solid #5a8ec2;
+        }
+        .section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5a8ec2;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        section p {
+            line-height: 1.6;
+        }
+        menu {
+            list-style: none;
+            padding: 0;
+        }
+        menu li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #5a8ec2;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        menu li:hover {
+            background-color: #444;
+        }
+        a {
+            color: #5a8ec2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #1da1f2;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery-item {
+            flex: 1 1 calc(33% - 20px);
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #5a8ec2;
+            transition: background-color 0.3s ease;
+        }
+        .gallery-item:hover {
+            background-color: #444;
+        }
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .gallery-item p {
+            margin-top: 10px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin: 0 20px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons a {
+            color: #77828d;
+            font-size: 2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #1da1f2;
+            transform: scale(1.1);
+        }
+        .citation {
+            display: inline-block;
+            vertical-align: middle;
+            font-style: italic;      
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moumouni BELEM</h1>
+        <h2>Robotics & AI Engineer</h2>
+        <h3>Welcome to my personal website!</h3>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About</h2>
+            <img src="images/me_robot_bag.jpeg" alt="Profile Picture" class="profile-img">
+            <menu>
+                <li>
+                    <h3>
+                        <li>Moumouni BELEM, a passionate Robotics and AI Engineer with expertise in developing intelligent systems.</li>
+                        <li>Strong educational background in both Robotics and Artificial Intelligence.</li>
+                        <li>Focus on Navigation, Mapping, Behavior, Path Planning, SLAM, Localization, ...</li>
+                        <li>Open Source lover and Contributor. Ros distro, ...</li>
+                    </h3>
+                </menu>
+                </li>
+        </section>
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <menu>
+                <li>Autonomous Mobile Robots - SERENA , Continuous Integration and Delivery</li>
+                <li>Robot Controller Mobile app - Mobile app using rosbrige with websocket to control Serena</li>
+                <li>Machine Learning Models - Model to recognize countries flags</li>
+            </menu>
+        </section>
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/serena_v2_back.png" alt="Robot 1">
+                    <p>Serena at Coalescent Mobile Robotics docking its charger</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/serena_v1.jpg" alt="Robot 3">
+                    <p>Serena V1 operating at Bilka in Odense, Denmark</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/capra.jpeg" alt="Robot 4">
+                    <p>Capra Robot at Robstruct during a intership Odense, Denmark</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/thiago.jpeg" alt="Robot 4">
+                    <p>Thiago Robot at MFJA, France</p>
+                </div>
+            </div>
+            <blockquote class="citation"> "Let's free humans and allow them to spend value time in what they love"
+                <footer class="author">- Moumouni BELEM</footer>
+            </blockquote>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p></p>
+            <div class="social-icons">
+                <a href="https://www.github.com/belem2050" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/moumouni-belem" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.facebook.com/belem2050" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/@belem2050" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <p></p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:moumouni.belem.ing@gmail.com">moumouni.belem.ing@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+45206358385">+45 20 63 58 385</a></p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
