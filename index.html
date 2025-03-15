@@ -6,127 +6,129 @@
     <title>Moumouni BELEM - Robotics & AI Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
+            background-color: #0f0f0f;
             color: #fff;
         }
         header {
-            background-color: #7b8fa3;
+            background-color: #5a8ec2;
             color: #fff;
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        h1, h2, h3 {
-            margin: 0;
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.2em;
             font-weight: 400;
+            color: #ddd;
         }
+
         nav {
             background-color: #333;
-            padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         nav a {
             text-decoration: none;
             color: #fff;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 30px;
+            margin: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        nav a:hover {
+
+        nav a:hover,
+        nav a.active {
             background-color: #5a8ec2;
             transform: scale(1.1);
         }
         .container {
             max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
+            margin: 40px auto;
+            padding: 20px;
         }
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         .profile-img {
             display: block;
-            margin: 20px auto;
+            margin: 30px auto;
             border-radius: 50%;
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             object-fit: cover;
             border: 5px solid #5a8ec2;
+            transition: transform 0.3s ease;
         }
-        .section {
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+        section {
             margin-bottom: 40px;
-            text-align: left;
         }
         section h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
-            border-bottom: 2px solid #5a8ec2;
-            display: inline-block;
-            padding-bottom: 5px;
+            border-bottom: 3px solid #5a8ec2;
+            padding-bottom: 10px;
         }
         section p {
-            line-height: 1.6;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
-        menu {
-            list-style: none;
-            padding: 0;
-        }
-        menu li {
-            background-color: #333;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #5a8ec2;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        menu li:hover {
-            background-color: #444;
-        }
-        a {
+        .highlight {
             color: #5a8ec2;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #1da1f2;
+            font-weight: bold;
+            font-style: italic;
         }
         .gallery {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: space-between;
         }
         .gallery-item {
             flex: 1 1 calc(33% - 20px);
             background-color: #333;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
             text-align: center;
             border: 1px solid #5a8ec2;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .gallery-item:hover {
             background-color: #444;
+            transform: scale(1.05);
         }
         .gallery-item img {
             max-width: 100%;
-            border-radius: 5px;
-        }
-        .gallery-item p {
-            margin-top: 10px;
-        }
-        .contact-info {
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .contact-info p {
-            justify-content: center;
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .social-icons a {
             color: #77828d;
@@ -137,13 +139,239 @@
             color: #1da1f2;
             transform: scale(1.1);
         }
-        .citation {
-            display: inline-block;
-            vertical-align: middle;
-            font-style: italic;      
+        blockquote {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 30px;
+            text-align: center;
+            border-left: 5px solid #5a8ec2;
+            padding-left: 20px;
+            color: #ddd;
         }
-        
-    </style>
+
+        footer {
+            background-color: #333;
+            color: #ddd;
+            padding: 30px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 1 1 100%;
+            }
+        }
+
+    /* Style for Projects Section */
+    #projects .project-section {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #projects h3 {
+        font-size: 1.8em;
+        color: #5a8ec2;
+        margin-bottom: 10px;
+    }
+
+    .project-media {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .project-media img,
+    .project-media video {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .project-links a {
+        color: #5a8ec2;
+        text-decoration: none;
+        font-size: 1.1em;
+        margin-right: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+        color: #1da1f2;
+    }
+
+    /* Style for Projects Section */
+    #projects .project-section {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #projects h3 {
+        font-size: 1.8em;
+        color: #5a8ec2;
+        margin-bottom: 10px;
+    }
+
+    .project-media {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .project-media img,
+    .project-media video {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .project-links a {
+        color: #5a8ec2;
+        text-decoration: none;
+        font-size: 1.1em;
+        margin-right: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .project-links a:hover {
+        color: #1da1f2;
+    }
+
+    .about-section {
+    background-color: #333;
+    padding: 40px 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column; /* Ensure vertical stacking of image and text */
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .about-container h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #5a8ec2;
+        font-weight: bold;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-image-container {
+        position: relative;
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        margin-bottom: 20px;
+    }
+
+    .about-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .about-img:hover {
+        transform: scale(1.1);
+    }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border-radius: 0 0 50% 50%;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .image-overlay h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        color: #5a8ec2;
+    }
+
+    .image-overlay p {
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .about-img:hover + .image-overlay {
+        transform: translateY(0);
+    }
+
+    .about-text-container {
+        text-align: center; /* Add this line */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-text-frame {
+        max-width: 800px;
+        width: 100%;
+        background-color: #444;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        border: 2px solid #5a8ec2;
+    }
+
+    .about-text-frame p {
+        line-height: 1.8;
+        font-size: 1.1em;
+        font-weight: 400;
+        color: #ccc;
+    }
+
+    .highlight {
+        color: #5a8ec2;
+        font-weight: bold;
+    }
+
+    @media (min-width: 768px) {
+        .about-container {
+            flex-direction: column; /* Stack vertically on larger screens */
+        }
+
+        .about-image-container {
+            width: 300px;
+            height: 300px;
+        }
+
+        .about-text-frame {
+            font-size: 1.2em;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .about-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+</style>
 </head>
 <body>
     <header>
@@ -152,93 +380,151 @@
         <h3>Welcome to my personal website!</h3>
     </header>
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" class="tab-link active">About</a>
+        <a href="#projects" class="tab-link">Projects</a>
+        <a href="#gallery" class="tab-link">Gallery</a>
+        <a href="#contact" class="tab-link">Contact</a>
     </nav>
+    <!-- About Section -->
     <div class="container">
-        <section id="about" class="section">
-            <h2>About</h2>
-            <img src="images/robot_brag.jpeg" alt="Profile Picture" class="profile-img">
-            <menu>
-                <li>
-                    <h3>
-                        <li>Moumouni BELEM, passionate in Robotics and AI with expertise in developing intelligent systems.</li>
-                        <li>Strong educational background in both Robotics and Artificial Intelligence.</li>
-                        <li>Focus on Navigation, Mapping, Behavior, Path Planning, SLAM, Localization, ...</li>
-                        <li>Open Source lover and Contributor. Ros distro, ...</li>
-                    </h3>
-                </menu>
-                </li>
-        </section>
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <menu>
-                <li>Autonomous Mobile Robots - SERENA , Continuous Integration and Delivery</li>
-                <li>Robot Controller Mobile app - Mobile app using rosbrige with websocket to control Serena</li>
-                <li>Machine Learning Models - Model to recognize countries flags</li>
-            </menu>
-        </section>
-        <section id="gallery" class="section">
-            <h2>Gallery</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="images/serena_v2_back.png" alt="Robot 1">
-                    <p>Serena at Coalescent Mobile Robotics docking its charger</p>
+        <div id="about" class="tab-content">
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-image-container">
+                        <img src="images/robot_brag.jpeg" alt="Profile Picture" class="about-img">
+                        <div class="image-overlay">
+                            <h3>Meet <span class="highlight">Moumouni BELEM</span></h3>
+                            <p>Robotics & AI Engineer</p>
+                        </div>
+                    </div>
+                    <div class="about-text-container">
+                        <div class="about-text-frame">
+                            <p>Hi, I’m <span class="highlight">Moumouni BELEM</span>, a passionate Robotics & AI engineer. My journey began with a fascination for machines, technology, and how we can create systems that can interact with and adapt to the world.</p>
+                            <p>With a solid background in both Robotics and Artificial Intelligence, I’ve worked on many exciting projects in areas like <span class="highlight">navigation, SLAM, path planning, and localization</span>. I specialize in building autonomous systems that can think, plan, and act with intelligence.</p>
+                            <p>My work involves contributing to open-source projects, developing systems using ROS (Robot Operating System), and constantly learning the latest breakthroughs in AI to push the boundaries of what’s possible.</p>
+                            <p>I believe that robots and AI should not just be tools but partners that help humans reach their full potential. Through my work, I aim to build systems that are helpful, autonomous, and seamlessly integrated into our daily lives.</p>
+                            <p>Feel free to explore my projects and connect with me to discuss how we can work together to create intelligent systems!</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/serena_v1.jpg" alt="Robot 3">
-                    <p>Serena V1 operating at Bilka in Odense, Denmark</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/capra.jpeg" alt="Robot 4">
-                    <p>Capra Robot at Robstruct during a internship Odense, Denmark</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/thiago.jpeg" alt="Robot 4">
-                    <p>Thiago Robot at MFJA, France</p>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="images/app.jpg" alt="Robot 4">
-                    <p>The Mobile app to control Serena UI</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/serean_v_2_charging.jpeg" alt="Robot 4">
-                    <p>Naked Serena on charging spot</p>
-                </div>
-            </div>
-            <blockquote class="citation"> "Let's free humans and allow them to spend value time in what they love"
-                <footer class="author">- Moumouni BELEM</footer>
-            </blockquote>
-        </section>
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p></p>
-            <div class="social-icons">
-                <a href="https://www.github.com/belem2050" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/moumouni-belem" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.facebook.com/belem2050" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://www.youtube.com/@belem2050" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                 <a href="https://www.x.com/@belem2050" target="_blank">
-                    <i class="fab fa-x"></i>
-                </a>
-            </div>
-            <p></p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> Email:  <a href="mailto:moumouni.belem.ing@gmail.com">moumouni.belem.ing@gmail.com</a></p>
-                <p><i class="fas fa-phone"></i> Phone:  <a href="tel:+45206358385">+45 20 63 85 80</a></p>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
+    <div class="container">
+        <div id="projects" class="tab-content active">
+            <section>
+                <h2>Projects</h2>
+        
+                <!-- Project 1: Serena Robot -->
+                <div class="project-section">
+                    <h3>Autonomous Mobile Robot - SERENA</h3>
+                    <div class="project-media">
+                        <img src="images/serena_v2_back.png" alt="Serena Robot" class="project-image">
+                        <!-- Example of adding a video instead of an image -->
+                        <!-- <video controls class="project-video">
+                            <source src="videos/serena_robot.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> -->
+                    </div>
+                    <p>Continuous Integration and Delivery system for the autonomous mobile robot Serena. Designed to improve the operational efficiency of autonomous systems.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/belem2050/serena" target="_blank">View on GitHub</a>
+                        <a href="https://www.youtube.com/watch?v=xyz" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+                <!-- Project 2: Robot Controller App -->
+                <div class="project-section">
+                    <h3>Robot Controller Mobile App</h3>
+                    <div class="project-media">
+                        <video controls class="project-video">
+                            <source src="videos/robot_controller.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p>A mobile application that uses ROSBridge with WebSocket to control Serena. Built with React Native to offer seamless interaction with the robot.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/belem2050/robot-controller" target="_blank">View on GitHub</a>
+                        <a href="https://www.youtube.com/watch?v=abc" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+        
+                <!-- Project 3: Machine Learning Flags Recognition -->
+                <div class="project-section">
+                    <h3>Machine Learning - Flag Recognition</h3>
+                    <div class="project-media">
+                        <img src="images/flags_ml.png" alt="Machine Learning Flags" class="project-image">
+                        <!-- Alternatively, you can add a video instead of an image -->
+                        <!-- <video controls class="project-video">
+                            <source src="videos/flag_recognition.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> -->
+                    </div>
+                    <p>Developed a model to recognize country flags using machine learning techniques. The model utilizes image classification to identify flags based on visual patterns.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/belem2050/flag-recognition" target="_blank">View on GitHub</a>
+                        <a href="https://www.youtube.com/watch?v=xyz" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+        
+            </section>
+        </div>
+        <!-- Gallery Section -->
+        <div id="gallery" class="tab-content">
+            <section>
+                <h2>Gallery</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="images/serena_v2_back.png" alt="Serena Docking">
+                        <p>Serena docking its charger at Coalescent Mobile Robotics</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/serena_v1.jpg" alt="Serena at Bilka">
+                        <p>Serena V1 operating at Bilka in Odense, Denmark</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/capra.jpeg" alt="Capra Robot">
+                        <p>Capra Robot during my internship at Robstruct, Odense, Denmark</p>
+                    </div>
+                </div>
+                <blockquote>"Let's free humans and allow them to spend valuable time in what they love."
+                    <footer>- Moumouni BELEM</footer>
+                </blockquote>
+            </section>
+        </div>
+        <!-- Contact Section -->
+        <div id="contact" class="tab-content">
+            <section>
+                <h2>Contact</h2>
+                <div class="social-icons">
+                    <a href="https://www.github.com/belem2050" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/moumouni-belem" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/belem2050" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@belem2050" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.x.com/@belem2050" target="_blank"><i class="fab fa-x"></i></a>
+                </div>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:moumouni.belem.ing@gmail.com">moumouni.belem.ing@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+45206358385">+45 20 63 85 80</a></p>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Moumouni BELEM. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                link.classList.add('active');
+                const activeTab = document.querySelector(link.getAttribute('href'));
+                activeTab.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
