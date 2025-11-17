@@ -3,635 +3,509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moumouni BELEM - Personal Wiki</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Moumouni BELEM - Robotics & AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Devicon for tech logos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <style>
-        :root {
-            --bg-main: #05060a;
-            --bg-elevated: #0b1120;
-            --accent: #5a8ec2;
-            --accent-soft: rgba(90, 142, 194, 0.22);
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --border-subtle: #1f2937;
-            --radius: 14px;
-            --radius-pill: 999px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: #020617;
-            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+            color: #fff;
         }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: #1da1f2;
-        }
-
         header {
+            background: linear-gradient(135deg, #7b8fa3, #4b5563);
+            color: #fff;
+            text-align: center;
+            padding: 32px 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+        }
+        header h2 {
+            margin: 6px 0 4px;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        header h3 {
+            margin: 4px 0 0;
+            font-weight: 300;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #111827;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #1f2937;
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(2, 6, 23, 0.96);
-            border-bottom: 1px solid var(--border-subtle);
-            backdrop-filter: blur(14px);
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            text-decoration: none;
+            color: #e5e7eb;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            margin: 0 4px;
+            transition: background-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+        }
+        nav a:hover {
+            background-color: #5a8ec2;
+            color: #fff;
+            transform: translateY(-1px);
         }
 
         .container {
             max-width: 960px;
-            margin: 0 auto;
+            margin: 20px auto 40px;
             padding: 0 20px;
-        }
-
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-            gap: 12px;
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .brand-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .brand-tagline {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        nav {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 5px 10px;
-            border-radius: var(--radius-pill);
-        }
-
-        nav a:hover {
-            color: var(--text-main);
-            background: #020617;
-        }
-
-        main {
-            padding: 24px 0 40px;
-        }
-
-        /* Layout */
-
-        .wiki-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 800px) {
-            .wiki-layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        /* Sidebar */
-
-        .sidebar {
-            background: var(--bg-elevated);
-            border-radius: 18px;
-            border: 1px solid var(--border-subtle);
-            padding: 18px 16px 16px;
         }
 
         .profile-img {
             display: block;
-            margin: 0 auto 12px;
+            margin: 20px auto;
             border-radius: 50%;
-            width: 180px;
-            height: 180px;
+            width: 260px;
+            height: 260px;
             object-fit: cover;
-            border: 3px solid var(--accent-soft);
+            border: 4px solid #5a8ec2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
-        .name-main {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        section h2 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5a8ec2;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-weight: 500;
+        }
+        section p {
+            line-height: 1.7;
+            color: #e5e7eb;
         }
 
-        .role-main {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        .quote {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: var(--text-muted);
-            border-left: 3px solid var(--accent-soft);
-            padding-left: 10px;
-            margin: 8px 0 14px;
-        }
-
-        .quote footer {
-            margin-top: 4px;
-            font-style: normal;
-            color: var(--accent);
-        }
-
-        .sidebar-section-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin: 12px 0 6px;
-        }
-
-        .quick-list {
+        menu {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 0.9rem;
+        }
+        menu li {
+            background-color: #111827;
+            margin: 10px 0;
+            padding: 10px 14px;
+            border: 1px solid #5a8ec2;
+            border-radius: 7px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            color: #d1d5db;
+        }
+        menu li:hover {
+            background-color: #1f2937;
+            transform: translateY(-1px);
         }
 
-        .quick-list li {
-            margin: 4px 0;
-            color: var(--text-muted);
+        a {
+            color: #5a8ec2;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-
-        .social-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 6px;
-        }
-
-        .social-row a {
-            font-size: 1.3rem;
-            color: #64748b;
-        }
-
-        .social-row a:hover {
+        a:hover {
             color: #1da1f2;
         }
 
-        /* Content sections */
-
-        .section {
-            margin-bottom: 24px;
-            background: var(--bg-elevated);
-            border-radius: 18px;
-            border: 1px solid var(--border-subtle);
-            padding: 16px 18px 14px;
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery-item {
+            flex: 1 1 calc(33% - 20px);
+            background-color: #111827;
+            padding: 10px;
+            border-radius: 7px;
+            text-align: center;
+            border: 1px solid #5a8ec2;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .gallery-item:hover {
+            background-color: #1f2937;
+            transform: translateY(-2px);
+        }
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .gallery-item p {
+            margin-top: 10px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
         }
 
-        .section-header {
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            color: #e5e7eb;
+        }
+        .social-icons {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 20px;
             margin-bottom: 10px;
         }
-
-        .section-header span.dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
+        .social-icons a {
+            color: #9ca3af;
+            font-size: 2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #1da1f2;
+            transform: scale(1.1);
         }
 
-        .section-header h2 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0;
+        .citation {
+            display: inline-block;
+            vertical-align: middle;
+            font-style: italic;
+            margin-top: 20px;
+            color: #d1d5db;
+        }
+        .citation .author {
+            display: block;
+            margin-top: 5px;
+            font-style: normal;
+            font-size: 0.9em;
+            color: #9ca3af;
         }
 
-        .section-body {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
+        .dev-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            margin-top: 5px;
+            border-radius: 999px;
+            border: 1px solid #5a8ec2;
+            font-size: 0.8em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        /* Tech stack */
-
+        /* ===== Tech Stack section ===== */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
+            gap: 15px;
         }
-
-        .skill-chip {
+        .skill-card {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 5px 10px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-subtle);
-            background: #020617;
-            font-size: 0.8rem;
-            color: var(--text-main);
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(90, 142, 194, 0.12);
+            border: 1px solid #5a8ec2;
+            box-shadow: 0 0 10px rgba(90, 142, 194, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        .skill-card i {
+            font-size: 1.8em;
+        }
+        .skill-name {
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            font-size: 0.95em;
+            text-transform: uppercase;
+        }
+        .skill-card:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 18px rgba(90, 142, 194, 0.7);
+            background: rgba(90, 142, 194, 0.2);
         }
 
-        .skill-chip i {
-            font-size: 1.2rem;
-        }
-
+        /* Tech icon colors */
         .skill-python i { color: #3776AB; }
         .skill-cpp i { color: #00599C; }
         .skill-csharp i { color: #239120; }
         .skill-dotnet i { color: #512BD4; }
         .skill-ros i { color: #22314E; }
         .skill-ros2 i { color: #00AEEF; }
-        .skill-gazebo i { color: #f97316; }
         .skill-linux i { color: #FCC624; }
         .skill-docker i { color: #0db7ed; }
         .skill-git i { color: #F05032; }
         .skill-opencv i { color: #5a8ec2; }
+        .skill-tensorflow i { color: #FF6F00; }
+        .skill-pytorch i { color: #EE4C2C; }
         .skill-robodk i { color: #5a8ec2; }
 
-        /* Robots & projects */
-
-        .item-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .item-list li {
-            margin-bottom: 8px;
-        }
-
-        .item-title {
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        .item-meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Timeline */
-
-        .timeline {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.88rem;
-        }
-
-        .timeline li {
-            margin: 4px 0;
-            color: var(--text-muted);
-        }
-
-        .timeline span.year {
-            font-weight: 500;
-            color: var(--accent);
-            margin-right: 6px;
-        }
-
-        /* Gallery */
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 10px;
-            margin-top: 6px;
-        }
-
-        .gallery-item {
-            background: #020617;
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-            padding: 6px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .gallery-item img {
-            max-width: 100%;
-            border-radius: 8px;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 12px 0 18px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 10px;
+        @media (max-width: 800px) {
+            .gallery-item {
+                flex: 1 1 100%;
+            }
         }
 
         @media (max-width: 600px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
+            .skill-card {
+                width: 100%;
+                justify-content: flex-start;
             }
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="container top-bar">
-        <div class="brand">
-            <span class="brand-name">Moumouni BELEM</span>
-            <span class="brand-tagline">Robotics · AI · .NET · Personal Wiki</span>
-        </div>
-        <nav>
-            <a href="#overview">Overview</a>
-            <a href="#tech">Tech Stack</a>
-            <a href="#robots">Robots</a>
-            <a href="#timeline">Timeline</a>
-            <a href="#links">Links</a>
-        </nav>
-    </div>
-</header>
+    <header>
+        <h1>Moumouni BELEM</h1>
+        <h2>Robotics &amp; AI Engineer · .NET Developer</h2>
+        <h3>Personal website · like my own small wiki</h3>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Tech Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<main class="container">
-    <div class="wiki-layout">
-        <!-- LEFT: profile / quick facts -->
-        <aside class="sidebar">
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About</h2>
             <img src="images/robot_brag.jpeg" alt="Moumouni BELEM" class="profile-img">
-            <div class="name-main">Moumouni BELEM</div>
-            <div class="role-main">Robotics & AI Engineer · .NET Developer</div>
+           <menu>
+                <li>
+                    <i class="fas fa-robot" style="color:#5a8ec2;"></i>
+                    Robotics & AI engineer blending software and intelligent systems — now building 
+                    <span style="color:#5a8ec2; font-weight:600;">.NET applications</span> in Toulouse, France.
+                </li>
 
-            <div class="quote">
-                "Let's free humans and allow them to spend value time in what they love"
-                <footer>– Moumouni BELEM</footer>
+                <li>
+                    <i class="fas fa-graduation-cap" style="color:#5a8ec2;"></i>
+                    Trained in advanced Robotics and Artificial Intelligence at 
+                    <span style="color:#5a8ec2; font-weight:600;">UPSSITECH (Toulouse)</span>.
+                </li>
+
+                <li>
+                    <i class="fas fa-cogs" style="color:#5a8ec2;"></i>
+                    Hands-on with autonomous mobile robots: navigation, SLAM, mapping, localization, and real-world robot behavior.
+                </li>
+
+                <li>
+                    <i class="fas fa-map-marker-alt" style="color:#5a8ec2;"></i>
+                    Former Robotics Engineer at Coalescent Mobile Robotics (Denmark) working on the 
+                    <span style="color:#5a8ec2; font-weight:600;">Serena AMR</span>.
+                </li>
+
+                <li>
+                    <i class="fab fa-github" style="color:#5a8ec2;"></i>
+                    Active open-source contributor and passionate member of the 
+                    <span style="color:#5a8ec2; font-weight:600;">ROS community</span>.
+                </li>
+            </menu>
+
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-card skill-python">
+                    <i class="devicon-python-plain"></i>
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="skill-card skill-cpp">
+                    <i class="devicon-cplusplus-plain"></i>
+                    <span class="skill-name">C++</span>
+                </div>
+                <div class="skill-card skill-c">
+                    <i class="devicon-c-plain"></i>
+                </div>
+                <div class="skill-card skill-csharp">
+                    <i class="devicon-csharp-plain"></i>
+                    <span class="skill-name">C#</span>
+                </div>
+                <div class="skill-card skill-dotnet">
+                    <i class="devicon-dotnetcore-plain"></i>
+                    <span class="skill-name">.NET</span>
+                </div>
+                <div class="skill-card skill-ros">
+                    <i class="devicon-ros-plain"></i>
+                    <span class="skill-name">ROS</span>
+                </div>
+                <div class="skill-card skill-ros2">
+                    <i class="devicon-ros-plain"></i>
+                    <span class="skill-name">ROS 2</span>
+                </div>
+                <div class="skill-card skill-linux">
+                    <i class="devicon-linux-plain"></i>
+                    <span class="skill-name">Linux</span>
+                </div>
+                <div class="skill-card skill-docker">
+                    <i class="devicon-docker-plain"></i>
+                    <span class="skill-name">Docker</span>
+                </div>
+                <div class="skill-card skill-git">
+                    <i class="devicon-git-plain"></i>
+                    <span class="skill-name">Git</span>
+                </div>
+                <div class="skill-card skill-opencv">
+                    <i class="devicon-opencv-plain"></i>
+                    <span class="skill-name">OpenCV</span>
+                </div>
+                <div class="skill-card skill-tensorflow">
+                    <i class="devicon-tensorflow-original"></i>
+                    <span class="skill-name">TensorFlow</span>
+                </div>
+                <div class="skill-card skill-robodk">
+                    <i class="fas fa-robot"></i>
+                    <span class="skill-name">RoboDK</span>
+                </div>
+                <div class="skill-card skill-robotframework">
+                    <i class="fas fa-robot"></i>
+                    <span class="skill-name">RobotFramework</span>
+                </div>
             </div>
+        </section>
 
-            <div class="sidebar-section">
-                <div class="sidebar-section-title">Quick facts</div>
-                <ul class="quick-list">
-                    <li>📍 Based in Toulouse, France</li>
-                    <li>🤖 Works with autonomous mobile robots</li>
-                    <li>💻 Codes in Python, C++, C#, .NET and more</li>
-                    <li>🌐 Loves open source & ROS</li>
-                </ul>
-            </div>
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+            <menu>
+       <menu>
+            <li>
+                <i class="fas fa-code" style="color:#5a8ec2; margin-right:6px;"></i>
+                <strong>.NET Developer – Novalynx, Toulouse, France</strong><br>
+                <span style="color:#d1d5db;">Building modern applications with C#, .NET, WPF and web APIs.</span>
+            </li>
 
-            <div class="sidebar-section">
-                <div class="sidebar-section-title">Contact</div>
-                <ul class="quick-list">
-                    <li><i class="fas fa-envelope"></i> 
-                        <a href="mailto:moumouni.belem.ing@gmail.com">moumouni.belem.ing@gmail.com</a>
+            <li>
+                <i class="fas fa-robot" style="color:#5a8ec2; margin-right:6px;"></i>
+                <strong>Robotics Engineer – Coalescent Mobile Robotics, Odense, Denmark</strong><br>
+                <span style="color:#d1d5db;">Worked on the Serena AMR: docking, navigation, SLAM, safety and real-world deployment.</span>
+            </li>
+
+            <li>
+                <i class="fas fa-cogs" style="color:#5a8ec2; margin-right:6px;"></i>
+                <strong>Robotics Engineering Intern – Coalescent Mobile Robotics &amp; RobStruct</strong><br>
+                <span style="color:#d1d5db;">Simulation, localization and perception using ROS, Gazebo and SLAM tools.</span>
+            </li>
+
+            <li>
+                <i class="fas fa-industry" style="color:#5a8ec2; margin-right:6px;"></i>
+                <strong>PGE Project – Diota / UPSSITECH</strong><br>
+                <span style="color:#d1d5db;">Industrial robotics & 3D vision using a Yaskawa HC10 and Ensenso sensing.</span>
+            </li>
+        </menu>
+
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+                <menu>
+                    <li>
+                        <i class="fas fa-robot" style="color:#5a8ec2; margin-right:6px;"></i>
+                        <strong>Autonomous Mobile Robot Serena</strong><br>
+                        <span style="color:#d1d5db;">Navigation, automatic docking, mapping and localization in real deployment environments.</span>
                     </li>
-                    <li><i class="fas fa-phone"></i> 
-                        <a href="tel:+4520638580">+45 20 63 85 80</a>
+
+                    <li>
+                        <i class="fas fa-mobile-alt" style="color:#5a8ec2; margin-right:6px;"></i>
+                        <strong>Robot Controller Mobile App</strong><br>
+                        <span style="color:#d1d5db;">Remote control of Serena using rosbridge and WebSocket with live status feedback.</span>
                     </li>
-                </ul>
+
+                    <li>
+                        <i class="fas fa-brain" style="color:#5a8ec2; margin-right:6px;"></i>
+                        <strong>Machine Learning Model</strong><br>
+                        <span style="color:#d1d5db;">Image classifier trained to recognize country flags.</span>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-desktop" style="color:#5a8ec2; margin-right:6px;"></i>
+                        <strong>RoboDK WPF Control App</strong><br>
+                        <span style="color:#d1d5db;">C#/.NET WPF app controlling robot TCP through a 3D UI sphere with live pose streaming.</span>
+                    </li>
+                </menu>
+
+        </section>
+
+        <section id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/serena_v2_back.png" alt="Serena robot docking to its charger">
+                    <p>Serena at Coalescent Mobile Robotics docking to its charger.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/serena_v1.jpg" alt="Serena V1 operating at Bilka">
+                    <p>Serena V1 operating at Bilka in Odense, Denmark.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/capra.jpeg" alt="Capra robot at Robstruct">
+                    <p>Capra robot at RobStruct during an internship in Odense, Denmark.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/thiago.jpeg" alt="Tiago robot at MFJA, France">
+                    <p>Tiago robot at MFJA, France.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/app.jpg" alt="Mobile app UI to control Serena">
+                    <p>Mobile app UI to control Serena.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/serean_v_2_charging.jpeg" alt="Serena charging on docking station">
+                    <p>Serena charging on the docking station.</p>
+                </div>
             </div>
+            <blockquote class="citation">
+                “Let's free humans and allow them to spend valuable time on what they love.”
+                <span class="author">– Moumouni BELEM</span>
+            </blockquote>
+        </section>
 
-            <div class="sidebar-section">
-                <div class="sidebar-section-title">Social</div>
-                <div class="social-row">
-                    <a href="https://github.com/belem2050" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/belem2050" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.facebook.com/belem2050" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@belem2050" target="_blank" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.x.com/@belem2050" target="_blank" aria-label="X">
-                        <i class="fab fa-x"></i>
-                    </a>
-                </div>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="social-icons">
+                <a href="https://www.github.com/belem2050" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/belem2050" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.facebook.com/belem2050" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/@belem2050" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.x.com/@belem2050" target="_blank" aria-label="X">
+                    <i class="fab fa-x"></i>
+                </a>
             </div>
-        </aside>
-
-        <!-- RIGHT: wiki content -->
-        <div>
-            <!-- Overview -->
-            <section id="overview" class="section">
-                <div class="section-header">
-                    <span class="dot"></span>
-                    <h2>Overview</h2>
-                </div>
-                <div class="section-body">
-                    <p>
-                        This page is a small “Wikipedia” about <strong>Moumouni BELEM</strong>.
-                        I work at the intersection of <strong>Robotics</strong>, <strong>Artificial Intelligence</strong>
-                        and <strong>Software Engineering</strong>. I like building robots that move in the real world,
-                        understand their environment, and are controlled by clean, modern code.
-                    </p>
-                    <p>
-                        Areas of interest:
-                    </p>
-                    <ul style="margin: 6px 0 0 18px;">
-                        <li>Navigation, mapping, SLAM, localization</li>
-                        <li>Behavior, robot safety, and real deployments in shops/warehouses</li>
-                        <li>.NET desktop and mobile apps talking to robots or APIs</li>
-                        <li>Open source, ROS ecosystems, and sharing knowledge online</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Tech Stack -->
-            <section id="tech" class="section">
-                <div class="section-header">
-                    <span class="dot"></span>
-                    <h2>Tech Stack</h2>
-                </div>
-                <div class="section-body">
-                    <p>Languages & tools I use a lot:</p>
-                    <div class="skills-grid">
-                        <div class="skill-chip skill-python">
-                            <i class="devicon-python-plain"></i> Python
-                        </div>
-                        <div class="skill-chip skill-cpp">
-                            <i class="devicon-cplusplus-plain"></i> C++
-                        </div>
-                        <div class="skill-chip skill-csharp">
-                            <i class="devicon-csharp-plain"></i> C#
-                        </div>
-                        <div class="skill-chip skill-dotnet">
-                            <i class="devicon-dotnetcore-plain"></i> .NET
-                        </div>
-                        <div class="skill-chip skill-ros">
-                            <i class="devicon-ros-plain"></i> ROS
-                        </div>
-                        <div class="skill-chip skill-ros2">
-                            <i class="devicon-ros-plain"></i> ROS 2
-                        </div>
-                        <div class="skill-chip skill-gazebo">
-                            <i class="fas fa-cubes"></i> Gazebo & RViz
-                        </div>
-                        <div class="skill-chip skill-opencv">
-                            <i class="devicon-opencv-plain"></i> OpenCV
-                        </div>
-                        <div class="skill-chip skill-linux">
-                            <i class="devicon-linux-plain"></i> Linux
-                        </div>
-                        <div class="skill-chip skill-docker">
-                            <i class="devicon-docker-plain"></i> Docker
-                        </div>
-                        <div class="skill-chip skill-git">
-                            <i class="devicon-git-plain"></i> Git
-                        </div>
-                        <div class="skill-chip skill-robodk">
-                            <i class="fas fa-robot"></i> RoboDK API
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Robots & projects -->
-            <section id="robots" class="section">
-                <div class="section-header">
-                    <span class="dot"></span>
-                    <h2>Robots & Projects</h2>
-                </div>
-                <div class="section-body">
-                    <ul class="item-list">
-                        <li>
-                            <div class="item-title">Serena – Autonomous Mobile Robot</div>
-                            <div class="item-meta">Coalescent Mobile Robotics · Navigation, docking, SLAM, safety</div>
-                            <p>
-                                Worked on automatic docking to chargers, mapping real environments,
-                                and improving localization and safety for deployment in supermarkets.
-                            </p>
-                        </li>
-                        <li>
-                            <div class="item-title">Robot Controller Mobile App</div>
-                            <div class="item-meta">rosbridge · WebSocket · Serena</div>
-                            <p>
-                                Mobile app to control the robot remotely and visualize status through ROS topics.
-                            </p>
-                        </li>
-                        <li>
-                            <div class="item-title">Capra & Tiago Robots</div>
-                            <div class="item-meta">Simulation, localization, perception experiments</div>
-                            <p>
-                                Used for research and internships: SLAM, navigation and 3D perception setups.
-                            </p>
-                        </li>
-                        <li>
-                            <div class="item-title">RoboDK WPF Control App</div>
-                            <div class="item-meta">C#, .NET, WPF, RoboDK API</div>
-                            <p>
-                                Small desktop app where a 3D sphere in the UI controls the robot TCP in RoboDK,
-                                with live position feedback.
-                            </p>
-                        </li>
-                        <li>
-                            <div class="item-title">Flag Recognition Model</div>
-                            <div class="item-meta">Machine learning experiment</div>
-                            <p>
-                                A model that classifies country flags from images — just for fun and learning.
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Timeline -->
-            <section id="timeline" class="section">
-                <div class="section-header">
-                    <span class="dot"></span>
-                    <h2>Mini Timeline</h2>
-                </div>
-                <div class="section-body">
-                    <ul class="timeline">
-                        <li><span class="year">Now</span> .NET dev & robotics/software mix in Toulouse.</li>
-                        <li><span class="year">Before</span> Robotics engineer in Denmark working on the Serena AMR.</li>
-                        <li><span class="year">Studies</span> Engineering in Robotics & AI at UPSSITECH (Toulouse).</li>
-                        <li><span class="year">Earlier</span> Internships around robotics, SLAM and simulation (Capra, Tiago, etc.).</li>
-                        <li><span class="year">Always</span> Passion for robots, coding, and sharing knowledge online.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Gallery / Links -->
-            <section id="links" class="section">
-                <div class="section-header">
-                    <span class="dot"></span>
-                    <h2>Gallery & Links</h2>
-                </div>
-                <div class="section-body">
-                    <p>Some pictures of robots and tools I’ve played with:</p>
-                    <div class="gallery">
-                        <div class="gallery-item">
-                            <img src="images/serena_v2_back.png" alt="Serena docking">
-                            <div>Serena docking to its charger.</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/serena_v1.jpg" alt="Serena V1 in Bilka">
-                            <div>Serena V1 in Bilka, Odense.</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/capra.jpeg" alt="Capra robot">
-                            <div>Capra robot in simulation/experiments.</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/thiago.jpeg" alt="Tiago robot">
-                            <div>Tiago robot at MFJA, France.</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/app.jpg" alt="Mobile app to control Serena">
-                            <div>Mobile UI for controlling Serena.</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/serean_v_2_charging.jpeg" alt="Serena charging">
-                            <div>“Naked” Serena charging while being debugged.</div>
-                        </div>
-                    </div>
-
-                    <p style="margin-top: 10px;">
-                        More about me on:
-                        <a href="https://github.com/belem2050" target="_blank">GitHub</a> ·
-                        <a href="https://www.linkedin.com/in/belem2050" target="_blank">LinkedIn</a> ·
-                        <a href="https://www.youtube.com/@belem2050" target="_blank">YouTube</a>
-                    </p>
-                </div>
-            </section>
-        </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Toulouse, France</p>
+                <p><i class="fas fa-envelope"></i> Email:
+                    <a href="mailto:moumouni.belem.private@gmail.com">moumouni.belem.private@gmail.com</a>
+                </p>
+                <p><i class="fas fa-phone"></i> Phone:
+                    <a href="tel:+33749196029">+33 7 49 19 60 29</a>
+                </p>
+            </div>
+        </section>
     </div>
-</main>
-
-<footer>
-    © <span id="year"></span> Moumouni BELEM · Personal wiki.
-</footer>
-
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
